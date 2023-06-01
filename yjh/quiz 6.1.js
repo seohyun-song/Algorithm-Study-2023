@@ -10,4 +10,4 @@ var trailingZeroes = function(n) {
     }
 };
 
-return trailingZeroes(n)qq
+return trailingZeroes(n)
