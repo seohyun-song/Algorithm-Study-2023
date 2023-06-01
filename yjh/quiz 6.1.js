@@ -3,11 +3,10 @@
  * @return {number}
  */
 var trailingZeroes = function(n) {
-    if (n === 1) {
-        return n;
-    } else {
-        return n * trailingZeroes(n-1);
-    }
+  let count = 0;
+  while (n > 0) {
+      n = Math.floor(n / 5);
+      count += n;
+  }
+  return count;
 };
-
-return trailingZeroes(n)
