@@ -22,11 +22,11 @@
  */
 var trailingZeroes = function (n) {
 	const factorial = getFactorial(BigInt(n)).toString();
-	let i = factorial.length;
-	if (factorial[i - 1] !== "0") return 0;
-	let count = 1;
+	let i = factorial.length - 1;
+	if (factorial[i] !== "0") return 0;
+	let count = 0;
 	while (i >= 0) {
-		if (factorial[i - 1] === factorial[i - 2]) {
+		if (factorial[i] === "0") {
 			count++;
 			i--;
 		} else {
