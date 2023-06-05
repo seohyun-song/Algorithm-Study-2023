@@ -14,7 +14,7 @@
  * @param {number[]} nums
  * @return {number[]}
  *
- * RunTime: 69ms, Memory: 45.6MB
+ * Runtime: 69ms, Memory: 45.6MB
  */
 var getConcatenation = function (nums) {
 	return nums.concat(nums);
@@ -22,7 +22,7 @@ var getConcatenation = function (nums) {
 
 /**
  * solution 2: ES6 spread operator
- * RunTime: 79ms, Memory: 45.8MB
+ * Runtime: 79ms, Memory: 45.8MB
  */
 var getConcatenation = function (nums) {
 	return [...nums, ...nums];
@@ -30,9 +30,27 @@ var getConcatenation = function (nums) {
 
 /**
  * solution 3: push & spread
- * RunTime: 76 ms, Memory: 44.8MB
+ * Runtime: 76 ms, Memory: 44.8MB
  */
 var getConcatenation = function (nums) {
 	nums.push(...nums);
 	return nums;
+};
+
+/**
+ * soltion 4: arr index 접근
+ * Runtime: 85ms, Memory: 46.1MB
+ *
+ * ex) nums = [1,2]
+ * result[0] = nums[0]& result[2]= nums[0]
+ * result[1] = nums[1]& result[3]= nums[1]
+ */
+var getConcatenation = function (nums) {
+	const result = [];
+	const n = nums.length;
+	nums.forEach((el, idx) => {
+		result[idx] = el;
+		result[idx + n] = el;
+	});
+	return result;
 };
