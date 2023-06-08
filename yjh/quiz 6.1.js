@@ -12,7 +12,7 @@ function factorial(n) {
 
 function trailingZeroes(num) {
   let count = 0;
-  const numStr = String(num);
+  const numStr = String(factorial(num));
   for (let i = numStr.length - 1; i >= 0; i--) {
     if (numStr[i] === '0') {
       count++;
