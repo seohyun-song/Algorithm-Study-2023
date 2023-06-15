@@ -30,4 +30,5 @@ var isValid = function(s) {
     }
     
     return !stack.length;
-}
+}                                               
+//모든 문자열을 순회한 후 스택이 비어있으면 유효한 괄호 문자열이므로 true를 반환, 남아있다면 false를 반환
