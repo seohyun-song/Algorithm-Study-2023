@@ -31,15 +31,25 @@ Input: n = 3, trust = [[1,3],[2,3],[3,1]]
 Output: -1  */
 
 var findJudge = function(n, trust) {
-    let count = Array(n+1).fill(0);
-    for(let [a, b] of trust){
-        count[a] = count[a] - 1;
-        count[b] = count[b] + 1;
-    }
-    for(let i =1; i < count.length; i++){
-        if(count[i] == n -1){
-            return i;
+    let trustScores = new Array(n+1).fill(0);
+
+    for (let [a, b] of trust) {
+    trustScores[a]--; // a는 b를 신뢰하지 않음
+    trustScores[b]++; // b는 신뢰를 받음
+  }
+
+  // 신뢰도 배열에서 값이 (n-1)인 사람을 찾음
+  for (let i = 1; i <= n; i++) {
+    if (trustScores[i] === n-1) {
+      // 마을 판사인지 확인하기 위해 다른 사람들이 이 사람을 신뢰하는지 확인
+      for (let j = 1; j <= n; j++) {
+        if (i !== j && trust[j] === i) {
+          return -1; // 
         }
+      }
+      return i; // 
     }
-    return -1
-};
+  }
+
+  return -1; // 
+}
